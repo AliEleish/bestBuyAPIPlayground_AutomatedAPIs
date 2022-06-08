@@ -1,11 +1,10 @@
 package ProductsAPI;
 
+import Enums.Endpoints;
 import Models.ResponseModels.productsAPIResponseModel;
-import org.hamcrest.Matchers;
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import restwrapper.restWrapper;
+import Restwrapper.restWrapper;
 
 import java.io.IOException;
 
@@ -22,10 +21,10 @@ public class productsAPI_Tests {
     public void TC01_CheckAllProductAreRetrievedSuccessfully() throws IOException {
 
         productsAPIResponseModel response =  restWrapper.restGetAsPOJO("src/main/resources/Properties/baseURL.properties"
-                , "ApiBaseURL" , "/products" , productsAPIResponseModel.class);
+                , "ApiBaseURL" , Endpoints.PRODUCTS, productsAPIResponseModel.class);
 
 
-       Assert.assertThat(response.total , equalTo(51957));
+       Assert.assertThat(response.total , equalTo(51958));
        Assert.assertThat(response.limit , equalTo(10));
        Assert.assertThat(response.skip , equalTo(0));
        Assert.assertThat(response.data.size() , equalTo(10));
