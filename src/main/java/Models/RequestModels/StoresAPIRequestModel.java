@@ -1,5 +1,6 @@
 package Models.RequestModels;
 
+import Models.ResponseModels.storesAPIResponseModel;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"name" , "type" , "address" , "address2" , "city", "state" , "zip" , "lat" , "lng" , "hours" , "services" })
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StoresAPIRequestModel {
     @JsonProperty("name")
@@ -32,12 +32,17 @@ public class StoresAPIRequestModel {
     public double lng;
     @JsonProperty("hours")
     public String hours;
-    @JsonProperty("services")
+    @JsonProperty("Services")
     public Services services;
 
     public class Services {
 
+        public Services()
+        {
+
+        }
     }
+
 
     public StoresAPIRequestModel()
     {
